@@ -3,6 +3,16 @@ require "./heap/*"
 module Heap
   extend self
 
+  def valid?(heap)
+    (0...heap.size).each do |i|
+      if i > 0
+        parentpos = (i - 1) >> 1
+        return false if !(heap[parentpos] <= heap[i])
+      end
+    end
+    return true
+  end
+
   def push(heap, element)
     heap << element
     siftdown heap, 0, heap.size - 1
@@ -10,7 +20,7 @@ module Heap
 
   def pop(heap)
     lastelt = heap.pop()
-    if heap
+    if heap.size > 0
       returnitem = heap[0]
       heap[0] = lastelt
       siftup heap, 0
