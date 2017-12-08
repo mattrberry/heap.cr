@@ -1,6 +1,6 @@
 # heap
 
-TODO: Write a description here
+An implementation of a heap structure and some of its useful methods
 
 ## Installation
 
@@ -9,7 +9,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   heap:
-    github: [your-github-name]/heap
+    github: mattrberry/heap.cr
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/heap/fork )
+1. Fork it ( https://github.com/mattrberry/heap.cr/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -34,4 +34,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Matthew Berry - creator, maintainer
+- [mattrberry](https://github.com/mattrberry) Matthew Berry - creator, maintainer
