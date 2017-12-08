@@ -27,7 +27,7 @@ describe Heap do
     end
   end
 
-  describe "push-pop" do
+  describe "push then pop" do
     it "push 256 random numbers and pop them off, verifying all's okay" do
       heap = [] of Float64
       data = [] of Float64
@@ -58,6 +58,40 @@ describe Heap do
         Heap.heapify(heap)
         Heap.valid?(heap).should be_true
       end
+    end
+  end
+
+  describe "pushpop" do
+    it "on empty" do
+      h = [] of Int32
+      x = Heap.pushpop(h, 10)
+      h.size.should eq 0
+      x.should eq 10
+    end
+
+    it "favors elements already in heap if equal" do
+      h = [] of (Int32 | Float64)
+      h << 10
+      x = Heap.pushpop(h, 10.0)
+      h.size.should eq 1
+      h[0].should eq 10
+      h[0].should be_a(Int32)
+      x.should eq 10.0
+      x.should be_a(Float64)
+    end
+
+    it "returns item when it is lowest" do
+      h = [10]
+      x = Heap.pushpop(h, 9)
+      h.should eq [10]
+      x.should eq 9
+    end
+
+    it "properly pops and pushes when item is not lowest" do
+      h = [10]
+      x = Heap.pushpop(h, 11)
+      h.should eq [11]
+      x.should eq 10
     end
   end
 end
